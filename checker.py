@@ -25,7 +25,7 @@ def filter_tokens(unfiltered):
     tokens = []
     
     for line in [x.strip() for x in unfiltered.readlines() if x.strip()]:
-        for regex in (r'[\w-]{24}\.[\w-]{6}\.[\w-]{38}', r'mfa\.[\w-]{84}'):
+        for regex in (r'[\w-]{24}\.[\w-]{6}\.[\w-]{27,38}', r'mfa\.[\w-]{84}'):
             for token in re.findall(regex, line):
                 if token not in tokens:
                     tokens.append(token)
